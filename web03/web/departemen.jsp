@@ -13,7 +13,7 @@
             <nav class="top-bar" data-topbar role="navigation">
                 <ul class="title-area">
                     <li class="name"><h1>
-                            <a href="#">Data Karyawan</a>
+                            <a href="#"><img src="assets/img/icon.png"/>&nbsp;Data Karyawan</a>
                         </h1></li>
                     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
                 </ul>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="content" id="panel2">
                         <h5>Input New Departemen</h5>
-                        <form>
+                        <form action="insertdepartemen" method="post">
                             <div class="row">
                                 <div class="large-6 columns">
                                     <label>Kode Departemen
