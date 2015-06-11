@@ -53,7 +53,7 @@
                                         <td>${dep.nama}</td>
                                         <td style="width: 15%">
                                             <a href="deletedepartemen?id=${dep.id}" class="label alert">Del</a>
-                                            <a href="" class="label success">Edit</a>
+                                            <a href="" data-reveal-id="formEdit" onclick="showEdit(${dep.id},'${dep.kode}','${dep.nama}')" class="label success">Edit</a>
                                             <a href="" class="label">View</a>
                                         </td>
                                     </tr>
@@ -90,10 +90,44 @@
             </div>
         </div>
 
+        <div id="formEdit" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <h2 id="modalTitle">Edit Departemen</h2>
+            <form action="updatedepartemen" method="post">
+                <div class="row">
+                    <div class="large-6 columns">
+                        <label>Kode Departemen
+                            <input type="text" name="txtKode" id="txtKode"/>
+                        </label>
+                    </div>                                    
+                </div>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <label>Nama Departemen
+                            <input type="text" name="txtNama" id="txtNama"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <input type="hidden" name="txtId"/>
+                        <input type="submit" value="Update" class="button small"/>
+                    </div>
+                </div>
+            </form>
+            <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+        </div>                         
+
         <script src="assets/js/vendor/jquery.js"></script>
         <script src="assets/js/foundation.min.js"></script>
         <script>
-            $(document).foundation();
+                $(document).foundation();
+
+                function showEdit(id,kode,nama) {                  
+                    $('#txtId').val(id);
+                    $('#txtKode').val(kode);
+                    $('#txtNama').val(nama);
+                }
+
         </script>
     </body>
 </html>
