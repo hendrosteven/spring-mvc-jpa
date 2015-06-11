@@ -12,6 +12,10 @@
         <servlet-name>DeleteDepartemenServlet</servlet-name>
         <servlet-class>servlet.DeleteDepartemenServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateDepartemenServlet</servlet-name>
+        <servlet-class>servlet.UpdateDepartemenServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewDepartemenServlet</servlet-name>
         <url-pattern>/viewdepartemen</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>DeleteDepartemenServlet</servlet-name>
         <url-pattern>/deletedepartemen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateDepartemenServlet</servlet-name>
+        <url-pattern>/updatedepartemen</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

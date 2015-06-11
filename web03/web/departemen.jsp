@@ -109,7 +109,7 @@
                 </div>
                 <div class="row">
                     <div class="large-6 columns">
-                        <input type="hidden" name="txtId"/>
+                        <input type="hidden" name="txtId" id="txtId"/>
                         <input type="submit" value="Update" class="button small"/>
                     </div>
                 </div>
