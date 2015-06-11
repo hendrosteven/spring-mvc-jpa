@@ -52,7 +52,7 @@
                                         <td>${dep.kode}</td>
                                         <td>${dep.nama}</td>
                                         <td style="width: 15%">
-                                            <a href="" class="label alert">Del</a>
+                                            <a href="deletedepartemen?id=${dep.id}" class="label alert">Del</a>
                                             <a href="" class="label success">Edit</a>
                                             <a href="" class="label">View</a>
                                         </td>
