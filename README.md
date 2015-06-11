@@ -1,2 +1,2 @@
-# webjpa-sample
-Simple Java web with JPA example
+# Spring Sample
+This is a list of sample code using Spring Framework and JPA/Hibernate
