@@ -7,12 +7,14 @@ package core.controller;
 
 import core.dao.DepartemenDAO;
 import entity.Departemen;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -44,8 +46,8 @@ public class DepartemenController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String delete(HttpServletRequest request) {
-        long id = Long.valueOf(request.getParameter("id"));
-        departemenDAO.delete(id);
+        long id = Long.valueOf(request.getParameter("id"));        
+        departemenDAO.delete(id);        
         return "redirect:/departemen";
     }
 
@@ -60,5 +62,18 @@ public class DepartemenController {
         dep.setNama(nama);
         departemenDAO.update(dep);
         return "redirect:/departemen";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/json")
+    @ResponseBody
+    public List<Departemen> getAllJSon() {
+        return departemenDAO.getAll();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/detail/json")
+    @ResponseBody
+    public Departemen getByIdJson(HttpServletRequest request) {
+        long id = Long.valueOf(request.getParameter("id"));
+        return departemenDAO.getById(id);
     }
 }

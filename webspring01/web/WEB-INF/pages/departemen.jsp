@@ -53,7 +53,7 @@
                                         <td>${dep.nama}</td>
                                         <td style="width: 15%">
                                             <a href="departemen/delete?id=${dep.id}" class="label alert">Del</a>
-                                            <a href="" data-reveal-id="formEdit" onclick="showEdit(${dep.id},'${dep.kode}','${dep.nama}')" class="label success">Edit</a>
+                                            <a href="" data-reveal-id="formEdit" onclick="showEdit(${dep.id})" class="label success">Edit</a>
                                             <a href="" class="label">View</a>
                                         </td>
                                     </tr>
@@ -122,10 +122,12 @@
         <script>
                 $(document).foundation();
 
-                function showEdit(id,kode,nama) {                  
-                    $('#txtId').val(id);
-                    $('#txtKode').val(kode);
-                    $('#txtNama').val(nama);
+                function showEdit(_id) {     
+                   $.getJSON("departemen/detail/json",{id : _id},function(data){                      
+                      $('#txtId').val(data.id);
+                      $('#txtKode').val(data.kode);
+                      $('#txtNama').val(data.nama);
+                   });
                 }
 
         </script>
