@@ -21,31 +21,44 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/departemen")
 public class DepartemenController {
-    
+
     @Autowired
     private DepartemenDAO departemenDAO;
-    
+
     @RequestMapping(method = RequestMethod.GET)
     public String getAll(ModelMap model) {
         model.addAttribute("departemens", departemenDAO.getAll());
         return "departemen";
     }
-    
+
     @RequestMapping(method = RequestMethod.POST, value = "/insert")
-    public String insertDepartemen(HttpServletRequest request) {
-        String kode = request.getParameter("kode");
-        String nama = request.getParameter("nama");
+    public String insert(HttpServletRequest request) {
+        String kode = request.getParameter("txtKode");
+        String nama = request.getParameter("txtNama");
         Departemen dep = new Departemen();
         dep.setKode(kode);
         dep.setNama(nama);
         departemenDAO.insert(dep);
         return "redirect:/departemen";
     }
-    
-    @RequestMapping( value = "/delete", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String delete(HttpServletRequest request) {
         long id = Long.valueOf(request.getParameter("id"));
         departemenDAO.delete(id);
+        return "redirect:/departemen";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/update")
+    public String update(HttpServletRequest request) {
+        long id = Long.valueOf(request.getParameter("txtId"));
+        String kode = request.getParameter("txtKode");
+        String nama = request.getParameter("txtNama");
+        Departemen dep = new Departemen();
+        dep.setId(id);
+        dep.setKode(kode);
+        dep.setNama(nama);
+        departemenDAO.update(dep);
         return "redirect:/departemen";
     }
 }

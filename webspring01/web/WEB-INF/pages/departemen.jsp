@@ -64,7 +64,7 @@
                     </div>
                     <div class="content" id="panel2">
                         <h5>Input New Departemen</h5>
-                        <form action="insertdepartemen" method="post">
+                        <form action="departemen/insert" method="post">
                             <div class="row">
                                 <div class="large-6 columns">
                                     <label>Kode Departemen
@@ -92,7 +92,7 @@
 
         <div id="formEdit" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
             <h2 id="modalTitle">Edit Departemen</h2>
-            <form action="updatedepartemen" method="post">
+            <form action="departemen/update" method="post">
                 <div class="row">
                     <div class="large-6 columns">
                         <label>Kode Departemen
